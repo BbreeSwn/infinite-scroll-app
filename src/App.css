@@ -1,38 +1,60 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
   text-align: center;
+  padding: 20px;
+  letter-spacing: 4px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.photos {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.display-photo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ */
+  gap: 15px; /* ระยะห่างระหว่างรูป */
+  max-width: 900px; /* จำกัดความกว้างของรูป */
+  width: 100%;
+  margin-top: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.display-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* ให้ขอบมนเล็กน้อย */
+  object-fit: cover; /* ป้องกันภาพบิดเบี้ยว */
+  transition: transform 1s ease-in-out;
+}
+.display-photo img:hover{
+  border: 2px solid rgb(108, 73, 9);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 780px) {
+  .display-photo {
+    grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
+    margin-top: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  main {
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .display-photo {
+    grid-template-columns: repeat(1, 1fr); /* 1 คอลัมน์ */
+    margin-top: 10px;
+    
+  }
+  main{
+    letter-spacing: 2px;
   }
 }

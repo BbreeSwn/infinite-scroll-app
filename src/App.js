@@ -1,5 +1,6 @@
 import PhotoComponent from "./components/PhotoComponent";
 import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const apiKey = `8UQXGA5eCF04KJ0YgIVks5yPYrYEnP7v8xEcWIpSoRI`;
@@ -22,11 +23,11 @@ function App() {
     <main>
       <h1>Infinite Scroll photo | Unsplash API</h1>
       <section className="photos">
-<div className="display-photo">
-  {photos.map((data,index)=>{
-    return <PhotoComponent key={index} {...data} />
-  })}
-</div>
+        <div className="display-photo">
+          {photos.map((data, index) => {
+            return <PhotoComponent key={index} {...data} />;
+          })}
+        </div>
       </section>
     </main>
   );
